@@ -1,0 +1,6 @@
+u_torso,models/players/doom/nms
+tag_head,
+tag_torso,
+tag_weapon,
+u_larm,models/players/doom/nms
+u_rarm,models/players/doom/nms

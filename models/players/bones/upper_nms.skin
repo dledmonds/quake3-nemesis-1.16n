@@ -1,0 +1,6 @@
+tag_head,
+tag_weapon,
+tag_torso,
+u_arms,models/players/bones/nms
+u_forearms,models/players/bones/nms
+u_torso,models/players/bones/nms

@@ -1,0 +1,6 @@
+tag_head,
+tag_weapon,
+u_torso,models/players/grunt/nms
+tag_torso,
+u_larm,models/players/grunt/nms
+u_rarm,models/players/grunt/nms
