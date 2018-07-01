@@ -1,0 +1,1393 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+  <TITLE>Nemesis Client Documentation</TITLE>
+  <META http-equiv=content-type content=text/html;charset=utf-8>
+  <STYLE type=text/css>
+body {
+    margin: 0;
+    font-size: small;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background: #000000;
+}
+
+h1 {
+    margin: 0px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
+    font-size: 160%;
+    font-variant: small-caps;
+    color: #ffffff;
+    border-bottom: 2px solid #b0a583;
+}
+
+h2 {
+    margin: 0px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
+    font-size: 125%;
+    font-variant: small-caps;
+    color: #ffffff;
+    border-bottom: 1px solid #b0a583;
+}
+
+a {
+    text-decoration: none;
+    color: #6facff;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+#content_menu li {
+    font-size: 100%;
+}
+
+#content_menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-variant: small-caps;
+    padding: 0px 10px 0px 10px;
+}
+
+#content_menu li a:hover {
+    color: #6facff;
+}
+
+table.feature {
+    font-family: "courier new";
+    border: 0;
+    padding: 0;
+}
+
+#content {
+	margin: 75px 0 0 0;
+}
+#section {
+	margin: 75px 0 0 0;
+	padding: 0 10px 0 10px;
+}
+#sub-section {
+	margin: 50px 0 0 0;
+	padding: 0 10px 0 10px;
+}
+#question {
+	border: 1px solid #c0c0c0;
+	border-collapse: collapse;
+	margin: 20px 0 0 0;
+	padding: 10px 10px 10px 10px;
+}
+</STYLE>
+</HEAD>
+
+<BODY>
+<DIV id="page">
+<P align=center><STRONG><FONT size=7>Nemesis Client v2.0.14 (529)</FONT></STRONG></P>
+<P align=center><STRONG>1.16n client and server mod</STRONG><BR><A href="http://www.q3nemesis.com">http://www.q3nemesis.com</A><BR><BR>Developed by Cyrus and Wonkey<BR><A href="mailto:cyrus@q3nemesis.com">cyrus@q3nemesis.com</A><BR/><A href="mailto:wonkey@q3nemesis.com">wonkey@q3nemesis.com</A><BR><BR><BR></P>
+
+<DIV id="content">
+<H1>Contents</H1>
+<UL id="content_menu">
+  <LI><A href="#view">Overview</A></LI>
+  <LI><A href="#install">Installation</A></LI>
+  <LI><A href="#whats_new">What's New?</A></LI>
+  <LI><A href="#feature">Feature Description</A>
+  <UL>
+    <LI><A href="#color">Coloring</A></LI>
+    <LI><A href="#enemy">Enemy Model/Enemy Color</A></LI>
+    <LI><A href="#xhair">Crosshair Intensity/Color</A></LI>
+    <LI><A href="#osp">OSP Style scoreboard</A></LI>
+    <LI><A href="#clientstats">Client Statistics</A></LI>
+    <LI><A href="#cpma">CPMA Style HUD</A></LI>
+    <LI><A href="#screenshot">Auto ScreenShot</A></LI>
+    <LI><A href="#demo">Auto Demo Record</A></LI>
+    <LI><A href="#rail">Rail Trails</A></LI>
+    <LI><A href="#speed">Player Speed</A></LI>
+    <LI><A href="#team">Team Crosshair Stats</A></LI>
+    <LI><A href="#accuracy">Draw Accuracy</A></LI>
+    <LI><A href="#breath">Player Breath</A></LI>
+    <LI><A href="#lightning">True Lightning</A></LI>
+    <LI><A href="#thaw">Thaw Sound</A></LI>
+    <LI><A href="#team_icons">Team Icons</A></LI>
+    <LI><A href="#no_beep">No Chat Beep</A></LI>
+    <LI><A href="#chat_mode">Filter Chat Messages</A></LI>
+    <LI><A href="#no_friend">No Friend Shader</A></LI>
+    <LI><A href="#no_connection">No Connection Interrupted Shader</A></LI>
+    <LI><A href="#no_trails">No Projectile Trails</A></LI>
+    <LI><A href="#scoreplum">Score Plums</A></LI>
+    <LI><A href="#ammocheck">Ammo Check</A></LI>
+    <LI><A href="#effects">Special Graphics Effects</A></LI>
+    <LI><A href="#auto_announce">Auto Announce</A></LI>
+    <LI><A href="#iceshells">Iceshells for Frozen Bodies</A></LI>
+    <LI><A href="#Special">Speciality Commands & Chat Tokens</A></LI>
+  </UL></LI>
+  <LI><A href="#bugs">Bugs</A></LI>
+  <LI><A href="#faq">FAQ's</A></LI>
+  <LI><A href="#credit">Credits</A></LI>
+  <LI><A href="#app">Appendix A</A></LI>
+</UL>
+</DIV>
+
+<DIV id="section">
+<A name=view></A><H1>Overview</H1>
+<P>The latest version of this document is always available at <a href="http://www.q3nemesis.com/docs/client-readme.html">http://www.q3nemesis.com/docs/client-readme.html</a>, please use it whenever possible.</P>
+<P>Nemesis Client is a client side modification for Quake 3 Arena that can be used to play on almost any 1.16n servers.  It was inspired by the developers playing the 1.32 point release and realizing the 1.16n community was missing out on so many client side features.  If the client is used on a Nemesis server it provides more features than are possible on other servers.</P>
+<P>A brief summary of the features (and if they are specific to Nemesis servers) can be found below, while more detailed descriptions and screenshots (where appropriate) can be found later on.</P>
+<UL>
+  <LI>Configurable enemy model</LI>
+  <LI>Configurable enemy color (head, torso, legs and rail)</LI>
+  <LI>Configurable crosshair intensity and color</LI>
+  <LI>OSP style team game scoreboard</LI>
+  <LI>OSP style accuracy statistics</LI>
+  <LI>CPMA style HUD</LI>
+  <LI>Automatic end of game screenshot</LI>
+  <LI>Automatic demo recording</LI>
+  <LI>Choice of 4 rail trail styles</LI>
+  <LI>1.32 style true lightning</LI>
+  <LI>New ingame menu</LI>
+  <LI>Display player speed</LI>
+  <LI>Display player accuracy</LI>
+  <LI>Display team mate health / armor</LI>
+  <LI>Draw player breathe in freeze games</LI>
+  <LI>Draw player ice shells on frozen bodies</LI>
+  <LI>Draw frozen gibs in freeze games</LI>
+  <LI>Scoreboard draws black letters in gray to make them easier to read</LI>
+  <LI>Automatic 'Taken ...' messages for teammates as you collect powerups</LI>
+  <LI>Speciality console commands to improve various configuration and gameplay options.</LI>
+  <LI>Leet speak</LI>
+  <LI>Extra weapon effects</LI>
+</UL>
+</DIV>
+
+<DIV id="section">
+<A name=install></A><H1>Installation</H1>
+<P>If you have any previous versions of this mod installed please delete them before installing this new one<BR><BR>The mod is distributed as zip file, which you must have already unzipped to locate this readme file. As well as this file you will find <STRONG>zzz-nemesis-core-X-Y-Z.pk3</STRONG> (X, Y and Z represent the release version) and <STRONG>zzz-nemesis-models.pk3</STRONG>. These two files need to be placed inside your <STRONG>baseq3</STRONG> directory of your Quake 3 installation. Placing them in baseq3 will make the mod available whatever server you choose to play on.<BR><BR>Alternatively you can place the two pk3 files inside a mod folder, i.e. inside your NoGhost directory of your Quake 3 installation.<BR><BR>If you have multiple client mods in a directory there is no guarantee that Nemesis will work correctly. We suggest you remove zzz-models, NoGhost client, osp client or anything else which offers similar functionality to Nemesis. There is no need to remove custom maps or model files as these will not affect Nemesis.</P>
+</DIV>
+
+<DIV id="section">
+<A name=whats_new></A><H1>What's New?</H1>
+<P>Description of changes between releases.</P>
+<DIV id="sub-section">
+<H2>2.0.14 (529)</H2>
+<UL>
+  <LI>New <a href="http://www.q3nemesis.com/forum/viewforum.php?f=12">SuperHUD</a> allowing players to fully customise their HUD using a simple text file.  Sample HUDs included.</LI>
+  <LI>Added <A href="#ammocheck">Ammo Check</A> so you can choose whether or not you want to allow switching to a weapon with no ammo</LI>
+  <LI>Integration with server authorization check so it is a valid client</LI>
+  <LI>Updated server detection to work with Nemesis Server 2.0.14 and above</LI>
+  <LI>Changed <A href="#thaw">ice shatter</A> sound</LI>
+  <LI>Removed pure CTF style grapple and effects.</LI>
+  <LI>Updated, moved or resized some text elements used on the HUD</LI>
+  <LI>Prevented client stats window being shown if you are in spectator</LI>
+</UL>
+
+<H2>2.0.11</H2>
+<UL>
+  <LI>Changed <strong>cg_specialEffects</strong> spark removal to work for grenade and rocket explosions.</LI>
+  <LI>Enabled damage given client statistic for all game types except freezetag.</LI>
+  <LI>New tournament (1v1) scoreboard with head and animation speeds changing based on scores</LI>
+  <LI>Fixed promode detection on non Nemesis servers.</LI>
+  <LI>Initial version of IP to country lookups using the <strong>\iplookup IP</strong> command.</LI>
+  <LI>Win/lose voice for tournament (1v1) gametypes.</LI>
+  <LI>Fixed bug sending timenudge and max packets to Nemesis servers</LI>
+  <LI>Added pure CTF style grapple and effects.</LI>
+</UL>
+
+<H2>2.0.10</H2>
+<UL>
+  <LI>Fixed bug where stats did not clear in 1v1 games</LI>
+  <LI>Fixed missing grapple model</LI>
+  <LI>Toggle for the <A href="#effects">Special Graphics Effects</A> introduced at 2.0.8</LI>
+</UL>
+
+<H2>2.0.8</H2>
+<UL>
+  <LI>Integration with Nemesis server mod (can still be used with any server mod, as always)</LI>
+  <LI>Ability to <A href="#chat_mode">Filter Chat Messages</A> via <strong>cg_chatMode</strong></LI>
+  <LI>Turn off <A href="#no_trails">Projectile Trails</A> (i.e. rocket smoke)</LI>
+  <LI>1.32 style <A href="#scoreplum">Score Plums</A></LI>
+  <LI>Ported various weapon and underwater effects from <A href="http://crypt.planetquake.gamespy.com/effectsmod.htm" rel="nofollow">z-effects</A></LI>
+  <LI>Added <A href="#clientstats">Client Statistics Window</A> showing weapon accuracy, kills, deaths and pickups.</LI>
+  <LI>Level timer turns yellow when 2 mins or less is reminaing</LI>
+</UL>
+
+<H2>1.5.0</H2>
+<UL>
+  <LI>Ability to <A href="#no_beep">Remove Chat Beep</A> with <strong>cg_noChatBeep</strong> cvar</LI>
+  <LI><A href="#auto_announce">Auto Announce</A> of picked up items via <strong>cg_autoAnnounce</strong> cvar</LI>
+  <LI>Added <strong>say_leet</strong> command</LI>
+  <LI>Removed hard coded speed of 320 for <strong>cg_drawSpeedBar</strong> so it now uses 40% increase for amber and 90% increase for red</LI>
+  <LI>Ability to <A href="#no_friend">Remove Friend Shader</A> (small yellow triangles above head) with <strong>cg_noFriendShader</strong> cvar</LI>
+  <LI>Ability to <A href="#no_connection">Remove Connection Interrupted Shader</A> with <strong>cg_noConnectionShader</strong> cvar</LI>
+  <LI>Turn on/off <A href="#iceshells">Iceshells for Frozen Bodies</A> using <strong>cg_iceShells</strong> cvar</LI>
+  <LI>Reworte <strong>/chelp</strong> command to provide more up to date documentation and allow a client to type <strong>/chelp &lt;COMMAND&gt;</strong> to get details about a specific command.</LI>
+  <LI>Addition of <strong>cg_specEnemyModel</strong> so you can choose if you want to use the enemy model whilst in spectator mode</LI>
+  <LI>Start of UI work to change some basic Nemesis settings</LI>
+</UL>
+</DIV>
+</DIV>
+
+<DIV id="section">
+<A name=feature></A><H1>Feature Description</H1>
+<P>An indepth discussion of the features, with examples.</P>
+
+<DIV id="sub-section">
+<A name=color></A><H2>Coloring</H2>
+<P>Some commands require the user to specify a color. To provide the most flexibility colors can be specified in one of three ways.</P>
+<P>Using the color string; red, green, yellow, blue, cyan, magenta, white, orange, black, ltgrey, mdgrey or dkgrey.</P>
+<P>Using the numerical color value as used to colorise name; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 or 12 (these follow the same order as the above color strings so 2 is green).</P>
+<P>Using a hexadecimal string of the format 0xRRGGBB. RR represents the red component, GG the green and BB the blue. Google will provide explanations of what hexadecimal means, but a hexadecimal color chart can be found in Appendix A.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name=enemy></A><H2>Enemy Model / Enemy Color</H2>
+<P>Enemy coloring is related to the choice of enemy model as you can only colorise the special skins we have created in the zzz-nemesis-models.pk3.<BR><BR>Enemy model is changed using the cvar <STRONG>cg_enemyModel</STRONG>. Valid values are any of the standard Quake 3 models or any custom models you have loaded. E.g.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_enemyModel keel</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left width=300>cg_enemyModel tankjr</TD>
+    <TD></TD></TR>
+  </TBODY>
+</TABLE>
+<P>We suggest using a large, heavy (therefore noisey) model for the enemy as the point of being able to choose is so you can hear them easily.</P>
+<P>To be able to use enemy coloring you must select the enemy model with the <STRONG>nms</STRONG> skin. E.g.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_enemyModel keel/nms</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left width=300>cg_enemyModel tankjr/nms</TD>
+    <TD></TD></TR>
+  </TBODY>
+</TABLE>
+<P>When in spectator mode you can choose whether the players ingame use the value you've specified in <strong>cg_enemyModel</strong> or the players chosen model using <strong>cg_specEnemyModel</strong></P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_specEnemyModel 0</TD>
+    <TD>use players chosen model</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_specEnemyModel 1</TD>
+    <TD>use enemy model</TD></TR>
+  </TBODY>
+</TABLE>
+<P>Custom models will hardly ever come with a colorable skin, so if you choose to use a custom model for the enemy you can <STRONG>not</STRONG> color it.</P>
+<P>Enemy color is changed using the cvar <STRONG>cg_enemyColor</STRONG>. Valid values are any of the coloring techniques described in the previous section. E.g.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_enemyColor green</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left width=300>cg_enemyColor 2</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left width=300>cg_enemyColor 0x00ff00</TD>
+    <TD></TD></TR>
+  </TBODY>
+</TABLE>
+<P>You can also specify different colors for the head, torso, legs and rail shots of your enemies. Using the separator "-" you can do the following.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left>cg_enemyColor red-green-yellow-green</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left>cg_enemyColor 3-2-5-1</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left>cg_enemyColor 0xdd2256-2-green-4</TD>
+    <TD></TD></TR>
+  </TBODY>
+</TABLE>
+<P>The values represent head, torso, legs and rail color in that order. If you provide less than 4 values the unknown ones will use the value provided for head color (which is why you only need to set 1 value if you want the same color for everything).</P>
+<P>After setting an enemy model you can disable it again by resetting it to the empty string. E.g.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_enemyModel ""</TD>
+    <TD></TD>
+  </TR>
+  </TBODY>
+</TABLE>
+<P>There is no corresponding team model command in Nemesis because the same results can be achieved by setting cg_forceModel to 1, making your team use the same model as you.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name=xhair></A><H2>Crosshair Intensity / Color</H2>
+<P>Crosshair color is changed using the cvar <STRONG>cg_crosshairColor</STRONG>. Valid values are the same as cg_enemyColor values. You must make sure that <STRONG>cg_crossHairHealth</STRONG> is disabled in order for this feature to work. Although cg_crossHairHealth is disabled by default in Nemesis, make sure that its disabled in your config(s). Below are some examples.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_crosshairColor green</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left width=300>cg_crosshairColor 3</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD align=left width=300>cg_crosshairColor 0xFF00FF</TD>
+    <TD></TD></TR>
+  </TBODY>
+</TABLE>
+<P>The transparency (opacity) of the crosshair can be changed using the cvar <STRONG>cg_crosshairAlpha</STRONG>. This will set how transparent your crosshair is. Valid values are 0.0 to 1.0.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_crosshairAlpha 1.0</TD>
+    <TD></TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=osp></A><H2>OSP Style Scoreboard</H2>
+<P>The OSP style scoreboard is enabled by default in team games (sorry, but there isn't one for FFA or 1v1 games, yet!). It is configured using <STRONG>cg_scoreBoardType</STRONG>, which by default is set to 1. If you prefer the standard score boards set it back to 0.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_scoreBoardType 0</TD>
+    <TD>standard</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_scoreBoardType 1</TD>
+    <TD>OSP style</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=clientstats></A><H2>Client Statistics</H2>
+<P>A new client statistics window has been added showing per weapon accuracy, per weapon kills/deaths and pickups.  The window displays at the end of a map or can be toggled with the <STRONG>cstats</STRONG> command.  Binding the command as follows will allow you to hold down the <STRONG>m</STRONG> key to display the window - releasing the <STRONG>m</STRONG> key hides the window again.</P>
+<P><STRONG>\bind m +cstats</STRONG></P>
+<P>All statistics are available, unless playing a game of freezetag in which damage given is replace with N/A (not available).</P>
+<P>All statistics are calculated on the client side, which, although not as accurate as server side calculations, means the statistics are available on all servers regardless of mod.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name=cpma></A><H2>CPMA Style HUD</H2>
+<P>CPMA style HUD is enabled or disabled using the <STRONG>cg_cpmaHud</STRONG> cvar.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_cpmaHud 0</TD>
+    <TD>standard HUD</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_cpmaHud 1</TD>
+    <TD>CPMA HUD</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=screenshot></A><H2>Automatic End of Game Screenshots</H2>
+<P>If you like to screenshot the scoreboard at the end of a game you can enable this feature so you will never forget again!<STRONG> cg_autoScreenshot</STRONG> is used to enable and disable this feature.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_autoScreenshot 0</TD>
+    <TD>off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_autoScreenshot 1</TD>
+    <TD>on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=demo></A><H2>Automatic Demo Recording</H2>
+<P>If you like to record your games because of clan matches or just to relive those frag moments you can do this automatically. Demos start when the warmup timer ends, so unless you enter a server while the warmup is counting down no demo will be recorded. Demos end when a map finished and the intermission is in progress. <STRONG>cg_autoRecord</STRONG> is used to enable and disable this feature.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_autoRecord 0</TD>
+    <TD>off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_autoRecord 1</TD>
+    <TD>on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=rail></A><H2>Rail Trails</H2>
+<P>There are four styles of rail trail to choose from, controlled by the <STRONG>cg_railTrail</STRONG> cvar.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_railTrail 1</TD>
+    <TD>default</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_railTrail 2</TD>
+    <TD>AF style</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_railTrail 3</TD>
+    <TD>Old style</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_railTrail 4</TD>
+    <TD>QF style</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=speed></A><H2>Player Speed</H2>
+<P>You can display your current player speed in u (game units) in the top right hand corner of the screen. Most servers default to 320 game speed so using this you can tell how well you are strafing. Good movers tend to hit speeds between 500 and 600u as they travel around maps searching for enemies. It is enabled and disabled using <STRONG>cg_drawSpeed</STRONG>.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_drawSpeed 0</TD>
+    <TD>off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_drawSpeed 1</TD>
+    <TD>on</TD></TR>
+  </TBODY>
+</TABLE>
+<P>Whilst concentrating on other things it is awkward to keep looking at your speed so a replacement bar can be used instead. <STRONG>cg_drawSpeedBar</STRONG> draws a small bar which is colorized green, amber or red depending on how fast you are traveling.</P>
+<P>0 – (normal+40%) is green<BR>(normal+40%) – (normal+90%) is amber<BR>(normal+90%) or more is red</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_drawSpeedBar 0</TD>
+    <TD>off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_drawSpeedBar 1</TD>
+    <TD>on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=team></A><H2>Team Crosshair Stats</H2>
+<P>In team games it is useful to be able to tell how much health and armor a team mate has left. <STRONG>cg_teamInfoType</STRONG> has 3 settings.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_teamInfoType 0</TD>
+    <TD>display name only</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_teamInfoType 1</TD>
+    <TD>name, health &amp; armor as text</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_teamInfoType 2</TD>
+    <TD>name, health &amp; armor using bars</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=accuracy></A><H2>Draw Accuracy</H2>
+<P>If you like to see how accurate you are you can use <STRONG>cg_drawAcc</STRONG> to display hit percentage in the top right hand corner of the screen.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_drawAcc 0</TD>
+    <TD>off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_drawAcc 1</TD>
+    <TD>on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=breath></A><H2>Player Breath</H2>
+<P>In freeze games you can add to the atmosphere but drawing breath puffs on players. This is enabled and disabled using <STRONG>cg_enableBreath</STRONG>.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_enableBreath 0</TD>
+    <TD>off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_enableBreath 1</TD>
+    <TD>on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=lightning></A><H2>True Lightning</H2>
+<P>1.32 style true lightning so the lightning gun fires a direct beam.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_trueLightning 0</TD>
+    <TD>off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_trueLightning 1</TD>
+    <TD>on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=thaw></A><H2>Thaw Sound</H2>
+<P>A new thaw sound has been added for freeze games so you can have an ice shatter.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_thawSoundType 0</TD>
+    <TD>default</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_thawSoundType 1</TD>
+    <TD>ice shatter</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=team_icons></A><H2>Team Icons</H2>
+<P>On the CPMA HUD you have the option of drawing team icons below the weapon info on the left hand side.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_useTeamIcons 0</TD>
+    <TD>no team icons</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_useTeamIcons 1</TD>
+    <TD>draw team icons</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=no_beep></A><H2>No Chat Beep</H2>
+<P>Enable or disable the beep you get when someone types a messages.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_noChatBeep 0</TD>
+    <TD>standard beep</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_noChatBeep 1</TD>
+    <TD>no beep</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=chat_mode></A><H2>Filter Chat Messages</H2>
+<P>Filter chat messages so you see everything (default), only say_team and tell messages, or only tell messages</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_chatMode 0</TD>
+    <TD>default (see everything)</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_chatMode 1</TD>
+    <TD>only team chat and tell</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_chatMode 2</TD>
+    <TD>only tell</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=no_friend></A><H2>No Friend Shader</H2>
+<P>Enable or disable the small triangle which appears over team mates heads when they are alive.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_noFriendShader 0</TD>
+    <TD>display shader</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_noFriendShader 1</TD>
+    <TD>no shader</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=no_connection></A><H2>No Connection Interrupted Shader</H2>
+<P>Enable or disable the connection interrupted shader appearing over players head when they lag (particularly bad on delagged NoGhost servers).</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_noConnectionShader 0</TD>
+    <TD>display shader</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_noConnectionShader 1</TD>
+    <TD>no shader</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=no_trails></A><H2>No Projectile Trails</H2>
+<P>Enable or disable the weapon projectile trails (i.e. rocket smoke).</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_noProjectileTrail 0</TD>
+    <TD>trails on</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_noProjectileTrail 1</TD>
+    <TD>trails off</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=scoreplum></A><H2>Score Plums</H2>
+<P>Enable or disable score plums.  A score plum is a floating number that appears above an enemy when you kill them.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_scorePlum 0</TD>
+    <TD>score plums off</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_scorePlum 1</TD>
+    <TD>score plums on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=ammocheck></A><H2>Ammo Check</H2>
+<P>If enabled will prevent you switching to a weapon with no ammo - like OSP.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_ammoCheck 0</TD>
+    <TD>default</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_ammoCheck 1</TD>
+    <TD>no switching to weapons with no ammo</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=effects></A><H2>Special Graphics Effects</H2>
+<P>Enable or disable the extra visual effects.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_specialEffects 0</TD>
+    <TD>no effects</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_specialEffects 1</TD>
+    <TD>sparks</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_specialEffects 2</TD>
+    <TD>plasma trail</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_specialEffects 3</TD>
+    <TD>sparks and plasma trail</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=auto_announce></A><H2>Auto Announce</H2>
+<P>Automatically announce to your team mates (so it only works in team games!) certain items that you pickup, as though you typed <strong>/say_team Taken Red Armor</strong> in the console window.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_autoAnnounce 0</TD>
+    <TD>No auto announcing</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_autoAnnounce X</TD>
+    <TD>auto announce items based on 'X'</TD></TR>
+  </TBODY>
+</TABLE>
+<P>'<strong>X</strong>' is made up by combining the numbers of the items you want to auto annouce from the list below.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>Yellow Armor</TD>
+    <TD>1</TD></TR>
+  <TR>
+    <TD align=left width=300>Red Armor</TD>
+    <TD>2</TD></TR>
+  <TR>
+    <TD align=left width=300>Mega Health</TD>
+    <TD>4</TD></TR>
+  <TR>
+    <TD align=left width=300>Holdable Teleporter</TD>
+    <TD>8</TD></TR>
+  <TR>
+    <TD align=left width=300>Medikit</TD>
+    <TD>16</TD></TR>
+  <TR>
+    <TD align=left width=300>Quad</TD>
+    <TD>32</TD></TR>
+  <TR>
+    <TD align=left width=300>Haste</TD>
+    <TD>64</TD></TR>
+  <TR>
+    <TD align=left width=300>Invisibility</TD>
+    <TD>128</TD></TR>
+  <TR>
+    <TD align=left width=300>Regeneration</TD>
+    <TD>256</TD></TR>
+  <TR>
+    <TD align=left width=300>Flight</TD>
+    <TD>512</TD></TR>
+  <TR>
+    <TD align=left width=300>Environmental Suit</TD>
+    <TD>1024</TD></TR>
+  </TBODY>
+</TABLE>
+<P>If you want to announce yellow and red armor you add their values together (1+2), then set <STRONG>cg_autoAnnounce 3</STRONG><BR>If you want to announce all items on the list set it to <STRONG>cg_autoAnnounce 2047</STRONG></P>
+</DIV>
+
+<DIV id="sub-section">
+<A name=iceshells></A><H2>Iceshells for Frozen Bodies</H2>
+<P>When playing freeze you can decide if you want ice shells (frozen look) on dead bodies.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>cg_iceShells 0</TD>
+    <TD>frozen bodies show as quad or battlesuit depending on server</TD></TR>
+  <TR>
+    <TD align=left width=300>cg_iceShells 1</TD>
+    <TD>frozen bodies have iceshells on</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+<DIV id="sub-section">
+<A name=special></A><H2>Specialty Commands &amp; Chat Tokens</H2>
+<P>This section contains a collection of commands that were implemented to enhance the game and provide easy control for the user.</P>
+<P>Typing <STRONG>/players</STRONG> in the console will give you a list of current players, their slot number and their team.</P>
+<P><STRONG>/startRecord &lt;DEMONAME&gt;</STRONG> can be used to record a demo without the need to wrap the call with synchronous client on/off calls (it does it for you).</P>
+<P><STRONG>/startPersistentFollow &lt;CLIENTSLOT&gt;</STRONG> will start following the client playing at the given slot number. Persistence comes into play when a player is frozen in a freeze game because as soon as they are thawed you will start following them again.</P>
+<P><STRONG>/stopPersistentFollow</STRONG> is used to turn off the above command. If you forget to call this command to disable persistent follow mode it will be as if you are continually issuing follow commands.</P>
+<P><STRONG>/recordPlayer &lt;CLIENTSLOT&gt; &lt;DEMONAME&gt;</STRONG> is used to record a client playing at a particular slot number. This is useful for recording a particular player during a clan war as you don't have to keep locating them after they die. You should understand how persistent follow works (more importantly how to turn if off) as this command makes use of it. Issuing a /stopRecord to end the demo will not disable the persistent follow, so you need to issue /stopPersistentFollow as well.  If you plan to record the demo for a complete map there is no problem as persistent follow is automatically disabled when a map ends.</P>
+<P>You can bind the command <STRONG>followTeamNext</STRONG> or <STRONG>followTeamPrevious</STRONG> to a key so when you are frozen in a team game you can cycle through live team mates to see if anyone is near enough to thaw you. If you are playing and you issue a follow command you are taken into spectator mode. In an effort to prevent you using one of these commands just as you are unfrozen checks are made so you cannot use them when you are alive. Sadly this is not 100% reliable due to delays transmitting game state between client and server so be careful using this command while you are being thawed.</P>
+<P>You can use various text substitutions in <STRONG>say</STRONG>, <STRONG>say_team</STRONG> and <STRONG>say_leet</STRONG> commands. For example, you can bind <STRONG>\bind m say_team taken #l</STRONG> and when you press the m key the <STRONG>#i</STRONG> tag is replaced with one of red armor, yellow armor, quad, regen, medikit, mega health or flight.</P>
+<TABLE class="feature">
+  <TBODY>
+  <TR>
+    <TD align=left width=300>#n</TD>
+    <TD>your player name</TD></TR>
+  <TR>
+    <TD align=left width=300>#s</TD>
+    <TD>your current score</TD></TR>
+  <TR>
+    <TD align=left width=300>#t</TD>
+    <TD>your team</TD></TR>
+  <TR>
+    <TD align=left width=300>#h</TD>
+    <TD>your current health</TD></TR>
+  <TR>
+    <TD align=left width=300>#a</TD>
+    <TD>your current armor</TD></TR>
+  <TR>
+    <TD align=left width=300>#i</TD>
+    <TD>last item you picked up</TD></TR>
+  <TR>
+    <TD align=left width=300>#l</TD>
+    <TD>name of player who last hit you</TD></TR>
+  <TR>
+    <TD align=left width=300>#x</TD>
+    <TD>name of player in crosshair</TD></TR>
+  <TR>
+    <TD align=left width=300>#k</TD>
+    <TD>name of killer</TD></TR>
+  </TBODY>
+</TABLE>
+<P><STRONG>say_leet</STRONG>, not heard of that command before?  Give it a try!</P>
+<P>The <STRONG>/chelp</STRONG> command prints brief list of available commands to the console incase you forget the details or cvar names ingame.</P>
+</DIV>
+</DIV>
+
+
+<DIV id="section">
+<A name=bugs></A><H1>Bugs</H1>
+<P>Although this is a stable release it still has one known bug remaining. We have chosen to release it with this bug because there is a workaround and it may take a long time to fix (it's based on an engine bug). Some people have been waiting a long time for this release and we don't want it delayed anymore.</P>
+<P>When joining a game from spectator the enemy models do not always refresh instantly. If you have enabled enemy colors you will see the teams in red/blue instead of your chosen color. There are a few workarounds.</P>
+<P>Type <STRONG>/vid_restart</STRONG> in the console (quite slow)</P>
+<P>Change the <STRONG>cg_enemyModel</STRONG> variable to something new, then back to what you want.</P>
+<P>Wait until you die or are frozen and the models should reload correctly.</P>
+</DIV>
+
+<DIV id="section">
+<A name=faq></A><H1>FAQ</H1>
+<DIV id="question">
+<P><STRONG>I installed it and I can't get anything to work, what's wrong?</STRONG></P>
+<P>If you followed the installation instructions you can verify whether the mod is loaded or not because the start screen of Quake 3 will now show some flashing copyright text (just below the main menu). If you installed it into a mod folder you may have to go to the "Mods" menus and load that mod before you enter your server (this is a problem with 1.11 linux server versions used to run NoGhost).<BR>Also make sure you are not trying to play on a pure server because some NoGhost pure servers will let you in, but will disable any pk3 files which are not on the server.</P>
+</DIV>
+<DIV id="question">
+<P><STRONG>Why are all the automatic screenshots and demos given names like demo0001, can you name them something sensible?</STRONG></P>
+<P>I'd love to, but in the 1.16n engine there is no way to access the current date and time to produce a unique name. Player name and map name would provide a useful name, because every time you replayed the map you'd overwrite the previous one which not a good idea.</P>
+</DIV>
+<DIV id="question">
+<P><STRONG>I really hate people using green models and think everyone should have to use the standard red or blue, what are you going to do about it?</STRONG></P>
+<P>That is exactly why the mod is distributed as two pk3 files. If you run a pure server you can let clients use all the features apart from enemy coloring by not adding zzz-nemesis-models.pk3 to your server. If you don't run a pure server then there are other mods which let people use green models (or even worse, bbox) so you have nothing to complain about.</P>
+</DIV>
+<DIV id="question">
+<P><STRONG>I thought you were going to add some commands so NoGhost servers could limit Nemesis functionality?</STRONG></P>
+<P>This was the original plan, but we don't see the point unless you run a pure server (see above). Without pure players would just use another mod to get the disallowed feature and we don't want to turn players away from using Nemesis just because server X disables a certain feature.</P>
+</DIV>
+<DIV id="question">
+<P><STRONG>I have cg_autoRecord enabled and when a map starts my game freezes for around 5 seconds!</STRONG></P>
+<P>This is because you have too many demos stored in your demo folder.  The freeze is caused by quake 3 trying to find the next demo name (remember they are named in an increasing sequence demoXXXX), which is done by checking the disk over and over again until it finds a possible name.  Simply move your demos to another folder or delete the ones you do not want to keep anymore.</P>
+</DIV>
+</DIV>
+
+<DIV id="section">
+<A name=credit></A><H1>Credits</H1>
+<P><STRONG>Easy</STRONG> - Developer of Excessive Plus mod <A href="http://www.excessiveplus.net/">http://www.excessiveplus.net/</A>, helped us fix enemy colors not working in vertex mode.</P>
+<P><STRONG>Q3A++</STRONG> - For alpha skins and various ideas.</P>
+<P><STRONG>Haste</STRONG> - Alternate Fire mod for his wicked "alternate" fire rail trail</P>
+<P><STRONG>OSP</STRONG> - For there Enemy Territory source code that helped us with ideas.</P>
+<P><STRONG>Matt McChesney</STRONG> - For writing z-effects mod and letting us have the source code to implement the weapon and water effects.</P>
+<P>Also thanks to all the quake modding forums and modders that have inspired us!</P>
+<P>We can't forget the people who helped test and use this mod as without you there would be no reason for us to have created it.</P>
+</DIV>
+
+<DIV id="section">
+<A name=app></A><H1>Appendix A</H1>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=5>
+  <TBODY>
+  <TR>
+    <TD>
+      <P align=center>0x000000</P></TD>
+    <TD align=middle>0x000033</TD>
+    <TD align=middle>0x000066</TD>
+    <TD align=middle>0x000099</TD>
+    <TD align=middle>0x0000CC</TD>
+    <TD align=middle>0x0000FF</TD></TR>
+  <TR>
+    <TD bgColor=#000000>&nbsp;</TD>
+    <TD bgColor=#000033>&nbsp;</TD>
+    <TD bgColor=#000066>&nbsp;</TD>
+    <TD bgColor=#000099>&nbsp;</TD>
+    <TD bgColor=#0000cc>&nbsp;</TD>
+    <TD bgColor=#0000ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x330000</P></TD>
+    <TD align=middle>0x330033</TD>
+    <TD align=middle>0x330066</TD>
+    <TD align=middle>0x330099</TD>
+    <TD align=middle>0x3300CC</TD>
+    <TD align=middle>0x3300FF</TD></TR>
+  <TR>
+    <TD bgColor=#330000>&nbsp;</TD>
+    <TD bgColor=#330033>&nbsp;</TD>
+    <TD bgColor=#330066>&nbsp;</TD>
+    <TD bgColor=#330099>&nbsp;</TD>
+    <TD bgColor=#3300cc>&nbsp;</TD>
+    <TD bgColor=#3300ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x003300</P></TD>
+    <TD align=middle>0x003333</TD>
+    <TD align=middle>0x003366</TD>
+    <TD align=middle>0x003399</TD>
+    <TD align=middle>0x0033CC</TD>
+    <TD align=middle>0x0033FF</TD></TR>
+  <TR>
+    <TD bgColor=#003300>&nbsp;</TD>
+    <TD bgColor=#003333>&nbsp;</TD>
+    <TD bgColor=#003366>&nbsp;</TD>
+    <TD bgColor=#003399>&nbsp;</TD>
+    <TD bgColor=#0033cc>&nbsp;</TD>
+    <TD bgColor=#0033ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x333300</P></TD>
+    <TD align=middle>0x333333</TD>
+    <TD align=middle>0x333366</TD>
+    <TD align=middle>0x333399</TD>
+    <TD align=middle>0x3333CC</TD>
+    <TD align=middle>0x3333FF</TD></TR>
+  <TR>
+    <TD bgColor=#333300>&nbsp;</TD>
+    <TD bgColor=#333333>&nbsp;</TD>
+    <TD bgColor=#333366>&nbsp;</TD>
+    <TD bgColor=#333399>&nbsp;</TD>
+    <TD bgColor=#3333cc>&nbsp;</TD>
+    <TD bgColor=#3333ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x006600</P></TD>
+    <TD align=middle>0x006633</TD>
+    <TD align=middle>0x006666</TD>
+    <TD align=middle>0x006699</TD>
+    <TD align=middle>0x0066CC</TD>
+    <TD align=middle>0x0066FF</TD></TR>
+  <TR>
+    <TD bgColor=#006600>&nbsp;</TD>
+    <TD bgColor=#006633>&nbsp;</TD>
+    <TD bgColor=#006666>&nbsp;</TD>
+    <TD bgColor=#006699>&nbsp;</TD>
+    <TD bgColor=#0066cc>&nbsp;</TD>
+    <TD bgColor=#0066ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x336600</P></TD>
+    <TD align=middle>0x336633</TD>
+    <TD align=middle>0x336666</TD>
+    <TD align=middle>0x336699</TD>
+    <TD align=middle>0x3366CC</TD>
+    <TD align=middle>0x3366FF</TD></TR>
+  <TR>
+    <TD bgColor=#336600>&nbsp;</TD>
+    <TD bgColor=#336633>&nbsp;</TD>
+    <TD bgColor=#336666>&nbsp;</TD>
+    <TD bgColor=#336699>&nbsp;</TD>
+    <TD bgColor=#3366cc>&nbsp;</TD>
+    <TD bgColor=#3366ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x009900</P></TD>
+    <TD align=middle>0x009933</TD>
+    <TD align=middle>0x009966</TD>
+    <TD align=middle>0x009999</TD>
+    <TD align=middle>0x0099CC</TD>
+    <TD align=middle>0x0099FF</TD></TR>
+  <TR>
+    <TD bgColor=#009900>&nbsp;</TD>
+    <TD bgColor=#009933>&nbsp;</TD>
+    <TD bgColor=#009966>&nbsp;</TD>
+    <TD bgColor=#009999>&nbsp;</TD>
+    <TD bgColor=#0099cc>&nbsp;</TD>
+    <TD bgColor=#0099ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x339900</P></TD>
+    <TD align=middle>0x339933</TD>
+    <TD align=middle>0x339966</TD>
+    <TD align=middle>0x339999</TD>
+    <TD align=middle>0x3399CC</TD>
+    <TD align=middle>0x3399FF</TD></TR>
+  <TR>
+    <TD bgColor=#339900>&nbsp;</TD>
+    <TD bgColor=#339933>&nbsp;</TD>
+    <TD bgColor=#339966>&nbsp;</TD>
+    <TD bgColor=#339999>&nbsp;</TD>
+    <TD bgColor=#3399cc>&nbsp;</TD>
+    <TD bgColor=#3399ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x00CC00</P></TD>
+    <TD align=middle>0x00CC33</TD>
+    <TD align=middle>0x00CC66</TD>
+    <TD align=middle>0x00CC99</TD>
+    <TD align=middle>0x00CCCC</TD>
+    <TD align=middle>0x00CCFF</TD></TR>
+  <TR>
+    <TD bgColor=#00cc00>&nbsp;</TD>
+    <TD bgColor=#00cc33>&nbsp;</TD>
+    <TD bgColor=#00cc66>&nbsp;</TD>
+    <TD bgColor=#00cc99>&nbsp;</TD>
+    <TD bgColor=#00cccc>&nbsp;</TD>
+    <TD bgColor=#00ccff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x33CC00</P></TD>
+    <TD align=middle>0x33CC33</TD>
+    <TD align=middle>0x33CC66</TD>
+    <TD align=middle>0x33CC99</TD>
+    <TD align=middle>0x33CCCC</TD>
+    <TD align=middle>0x33CCFF</TD></TR>
+  <TR>
+    <TD bgColor=#33cc00>&nbsp;</TD>
+    <TD bgColor=#33cc33>&nbsp;</TD>
+    <TD bgColor=#33cc66>&nbsp;</TD>
+    <TD bgColor=#33cc99>&nbsp;</TD>
+    <TD bgColor=#33cccc>&nbsp;</TD>
+    <TD bgColor=#33ccff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x00FF00</P></TD>
+    <TD align=middle>0x00FF33</TD>
+    <TD align=middle>0x00FF66</TD>
+    <TD align=middle>0x00FF99</TD>
+    <TD align=middle>0x00FFCC</TD>
+    <TD align=middle>0x00FFFF</TD></TR>
+  <TR>
+    <TD bgColor=#00ff00>&nbsp;</TD>
+    <TD bgColor=#00ff33>&nbsp;</TD>
+    <TD bgColor=#00ff66>&nbsp;</TD>
+    <TD bgColor=#00ff99>&nbsp;</TD>
+    <TD bgColor=#00ffcc>&nbsp;</TD>
+    <TD bgColor=#00ffff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x33FF00</P></TD>
+    <TD align=middle>0x33FF33</TD>
+    <TD align=middle>0x33FF66</TD>
+    <TD align=middle>0x33FF99</TD>
+    <TD align=middle>0x33FFCC</TD>
+    <TD align=middle>0x33FFFF</TD></TR>
+  <TR>
+    <TD bgColor=#33ff00>&nbsp;</TD>
+    <TD bgColor=#33ff33>&nbsp;</TD>
+    <TD bgColor=#33ff66>&nbsp;</TD>
+    <TD bgColor=#33ff99>&nbsp;</TD>
+    <TD bgColor=#33ffcc>&nbsp;</TD>
+    <TD bgColor=#33ffff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x660000</P></TD>
+    <TD align=middle>0x660033</TD>
+    <TD align=middle>0x660066</TD>
+    <TD align=middle>0x660099</TD>
+    <TD align=middle>0x6600CC</TD>
+    <TD align=middle>0x6600FF</TD></TR>
+  <TR>
+    <TD bgColor=#660000>&nbsp;</TD>
+    <TD bgColor=#660033>&nbsp;</TD>
+    <TD bgColor=#660066>&nbsp;</TD>
+    <TD bgColor=#660099>&nbsp;</TD>
+    <TD bgColor=#6600cc>&nbsp;</TD>
+    <TD bgColor=#6600ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x990000</P></TD>
+    <TD align=middle>0x990033</TD>
+    <TD align=middle>0x990066</TD>
+    <TD align=middle>0x990099</TD>
+    <TD align=middle>0x9900CC</TD>
+    <TD align=middle>0x9900FF</TD></TR>
+  <TR>
+    <TD bgColor=#990000>&nbsp;</TD>
+    <TD bgColor=#990033>&nbsp;</TD>
+    <TD bgColor=#990066>&nbsp;</TD>
+    <TD bgColor=#990099>&nbsp;</TD>
+    <TD bgColor=#9900cc>&nbsp;</TD>
+    <TD bgColor=#9900ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x663300</P></TD>
+    <TD align=middle>0x663333</TD>
+    <TD align=middle>0x663366</TD>
+    <TD align=middle>0x663399</TD>
+    <TD align=middle>0x6633CC</TD>
+    <TD align=middle>0x6633FF</TD></TR>
+  <TR>
+    <TD bgColor=#663300>&nbsp;</TD>
+    <TD bgColor=#663333>&nbsp;</TD>
+    <TD bgColor=#663366>&nbsp;</TD>
+    <TD bgColor=#663399>&nbsp;</TD>
+    <TD bgColor=#6633cc>&nbsp;</TD>
+    <TD bgColor=#6633ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x993300</P></TD>
+    <TD align=middle>0x993333</TD>
+    <TD align=middle>0x993366</TD>
+    <TD align=middle>0x993399</TD>
+    <TD align=middle>0x9933CC</TD>
+    <TD align=middle>0x9933FF</TD></TR>
+  <TR>
+    <TD bgColor=#993300>&nbsp;</TD>
+    <TD bgColor=#993333>&nbsp;</TD>
+    <TD bgColor=#993366>&nbsp;</TD>
+    <TD bgColor=#993399>&nbsp;</TD>
+    <TD bgColor=#9933cc>&nbsp;</TD>
+    <TD bgColor=#9933ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x666600</P></TD>
+    <TD align=middle>0x666633</TD>
+    <TD align=middle>0x666666</TD>
+    <TD align=middle>0x666699</TD>
+    <TD align=middle>0x6666CC</TD>
+    <TD align=middle>0x6666FF</TD></TR>
+  <TR>
+    <TD bgColor=#666600>&nbsp;</TD>
+    <TD bgColor=#666633>&nbsp;</TD>
+    <TD bgColor=#666666>&nbsp;</TD>
+    <TD bgColor=#666699>&nbsp;</TD>
+    <TD bgColor=#6666cc>&nbsp;</TD>
+    <TD bgColor=#6666ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x996600</P></TD>
+    <TD align=middle>0x996633</TD>
+    <TD align=middle>0x996666</TD>
+    <TD align=middle>0x996699</TD>
+    <TD align=middle>0x9966CC</TD>
+    <TD align=middle>0x9966FF</TD></TR>
+  <TR>
+    <TD bgColor=#996600>&nbsp;</TD>
+    <TD bgColor=#996633>&nbsp;</TD>
+    <TD bgColor=#996666>&nbsp;</TD>
+    <TD bgColor=#996699>&nbsp;</TD>
+    <TD bgColor=#9966cc>&nbsp;</TD>
+    <TD bgColor=#9966ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x669900</P></TD>
+    <TD align=middle>0x669933</TD>
+    <TD align=middle>0x669966</TD>
+    <TD align=middle>0x669999</TD>
+    <TD align=middle>0x6699CC</TD>
+    <TD align=middle>0x6699FF</TD></TR>
+  <TR>
+    <TD bgColor=#669900>&nbsp;</TD>
+    <TD bgColor=#669933>&nbsp;</TD>
+    <TD bgColor=#669966>&nbsp;</TD>
+    <TD bgColor=#669999>&nbsp;</TD>
+    <TD bgColor=#6699cc>&nbsp;</TD>
+    <TD bgColor=#6699ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x999900</P></TD>
+    <TD align=middle>0x999933</TD>
+    <TD align=middle>0x999966</TD>
+    <TD align=middle>0x999999</TD>
+    <TD align=middle>0x9999CC</TD>
+    <TD align=middle>0x9999FF</TD></TR>
+  <TR>
+    <TD bgColor=#999900>&nbsp;</TD>
+    <TD bgColor=#999933>&nbsp;</TD>
+    <TD bgColor=#999966>&nbsp;</TD>
+    <TD bgColor=#999999>&nbsp;</TD>
+    <TD bgColor=#9999cc>&nbsp;</TD>
+    <TD bgColor=#9999ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x66CC00</P></TD>
+    <TD align=middle>0x66CC33</TD>
+    <TD align=middle>0x66CC66</TD>
+    <TD align=middle>0x66CC99</TD>
+    <TD align=middle>0x66CCCC</TD>
+    <TD align=middle>0x66CCFF</TD></TR>
+  <TR>
+    <TD bgColor=#66cc00>&nbsp;</TD>
+    <TD bgColor=#66cc33>&nbsp;</TD>
+    <TD bgColor=#66cc66>&nbsp;</TD>
+    <TD bgColor=#66cc99>&nbsp;</TD>
+    <TD bgColor=#66cccc>&nbsp;</TD>
+    <TD bgColor=#66ccff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x99CC00</P></TD>
+    <TD align=middle>0x99CC33</TD>
+    <TD align=middle>0x99CC66</TD>
+    <TD align=middle>0x99CC99</TD>
+    <TD align=middle>0x99CCCC</TD>
+    <TD align=middle>0x99CCFF</TD></TR>
+  <TR>
+    <TD bgColor=#99cc00>&nbsp;</TD>
+    <TD bgColor=#99cc33>&nbsp;</TD>
+    <TD bgColor=#99cc66>&nbsp;</TD>
+    <TD bgColor=#99cc99>&nbsp;</TD>
+    <TD bgColor=#99cccc>&nbsp;</TD>
+    <TD bgColor=#99ccff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x66FF00</P></TD>
+    <TD align=middle>0x66FF33</TD>
+    <TD align=middle>0x66FF66</TD>
+    <TD align=middle>0x66FF99</TD>
+    <TD align=middle>0x66FFCC</TD>
+    <TD align=middle>0x66FFFF</TD></TR>
+  <TR>
+    <TD bgColor=#66ff00>&nbsp;</TD>
+    <TD bgColor=#66ff33>&nbsp;</TD>
+    <TD bgColor=#66ff66>&nbsp;</TD>
+    <TD bgColor=#66ff99>&nbsp;</TD>
+    <TD bgColor=#66ffcc>&nbsp;</TD>
+    <TD bgColor=#66ffff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0x99FF00</P></TD>
+    <TD align=middle>0x99FF33</TD>
+    <TD align=middle>0x99FF66</TD>
+    <TD align=middle>0x99FF99</TD>
+    <TD align=middle>0x99FFCC</TD>
+    <TD align=middle>0x99FFFF</TD></TR>
+  <TR>
+    <TD bgColor=#99ff00>&nbsp;</TD>
+    <TD bgColor=#99ff33>&nbsp;</TD>
+    <TD bgColor=#99ff66>&nbsp;</TD>
+    <TD bgColor=#99ff99>&nbsp;</TD>
+    <TD bgColor=#99ffcc>&nbsp;</TD>
+    <TD bgColor=#99ffff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xCC0000</P></TD>
+    <TD align=middle>0xCC0033</TD>
+    <TD align=middle>0xCC0066</TD>
+    <TD align=middle>0xCC0099</TD>
+    <TD align=middle>0xCC00CC</TD>
+    <TD align=middle>0xCC00FF</TD></TR>
+  <TR>
+    <TD bgColor=#cc0000>&nbsp;</TD>
+    <TD bgColor=#cc0033>&nbsp;</TD>
+    <TD bgColor=#cc0066>&nbsp;</TD>
+    <TD bgColor=#cc0099>&nbsp;</TD>
+    <TD bgColor=#cc00cc>&nbsp;</TD>
+    <TD bgColor=#cc00ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xFF0000</P></TD>
+    <TD align=middle>0xFF0033</TD>
+    <TD align=middle>0xFF0066</TD>
+    <TD align=middle>0xFF0099</TD>
+    <TD align=middle>0xFF00CC</TD>
+    <TD align=middle>0xFF00FF</TD></TR>
+  <TR>
+    <TD bgColor=#ff0000>&nbsp;</TD>
+    <TD bgColor=#ff0033>&nbsp;</TD>
+    <TD bgColor=#ff0066>&nbsp;</TD>
+    <TD bgColor=#ff0099>&nbsp;</TD>
+    <TD bgColor=#ff00cc>&nbsp;</TD>
+    <TD bgColor=#ff00ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xCC3300</P></TD>
+    <TD align=middle>0xCC3333</TD>
+    <TD align=middle>0xCC3366</TD>
+    <TD align=middle>0xCC3399</TD>
+    <TD align=middle>0xCC33CC</TD>
+    <TD align=middle>0xCC33FF</TD></TR>
+  <TR>
+    <TD bgColor=#cc3300>&nbsp;</TD>
+    <TD bgColor=#cc3333>&nbsp;</TD>
+    <TD bgColor=#cc3366>&nbsp;</TD>
+    <TD bgColor=#cc3399>&nbsp;</TD>
+    <TD bgColor=#cc33cc>&nbsp;</TD>
+    <TD bgColor=#cc33ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xFF3300</P></TD>
+    <TD align=middle>0xFF3333</TD>
+    <TD align=middle>0xFF3366</TD>
+    <TD align=middle>0xFF3399</TD>
+    <TD align=middle>0xFF33CC</TD>
+    <TD align=middle>0xFF33FF</TD></TR>
+  <TR>
+    <TD bgColor=#ff3300>&nbsp;</TD>
+    <TD bgColor=#ff3333>&nbsp;</TD>
+    <TD bgColor=#ff3366>&nbsp;</TD>
+    <TD bgColor=#ff3399>&nbsp;</TD>
+    <TD bgColor=#ff33cc>&nbsp;</TD>
+    <TD bgColor=#ff33ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xCC6600</P></TD>
+    <TD align=middle>0xCC6633</TD>
+    <TD align=middle>0xCC6666</TD>
+    <TD align=middle>0xCC6699</TD>
+    <TD align=middle>0xCC66CC</TD>
+    <TD align=middle>0xCC66FF</TD></TR>
+  <TR>
+    <TD bgColor=#cc6600>&nbsp;</TD>
+    <TD bgColor=#cc6633>&nbsp;</TD>
+    <TD bgColor=#cc6666>&nbsp;</TD>
+    <TD bgColor=#cc6699>&nbsp;</TD>
+    <TD bgColor=#cc66cc>&nbsp;</TD>
+    <TD bgColor=#cc66ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xFF6600</P></TD>
+    <TD align=middle>0xFF6633</TD>
+    <TD align=middle>0xFF6666</TD>
+    <TD align=middle>0xFF6699</TD>
+    <TD align=middle>0xFF66CC</TD>
+    <TD align=middle>0xFF66FF</TD></TR>
+  <TR>
+    <TD bgColor=#ff6600>&nbsp;</TD>
+    <TD bgColor=#ff6633>&nbsp;</TD>
+    <TD bgColor=#ff6666>&nbsp;</TD>
+    <TD bgColor=#ff6699>&nbsp;</TD>
+    <TD bgColor=#ff66cc>&nbsp;</TD>
+    <TD bgColor=#ff66ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xCC9900</P></TD>
+    <TD align=middle>0xCC9933</TD>
+    <TD align=middle>0xCC9966</TD>
+    <TD align=middle>0xCC9999</TD>
+    <TD align=middle>0xCC99CC</TD>
+    <TD align=middle>0xCC99FF</TD></TR>
+  <TR>
+    <TD bgColor=#cc9900>&nbsp;</TD>
+    <TD bgColor=#cc9933>&nbsp;</TD>
+    <TD bgColor=#cc9966>&nbsp;</TD>
+    <TD bgColor=#cc9999>&nbsp;</TD>
+    <TD bgColor=#cc99cc>&nbsp;</TD>
+    <TD bgColor=#cc99ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xFF9900</P></TD>
+    <TD align=middle>0xFF9933</TD>
+    <TD align=middle>0xFF9966</TD>
+    <TD align=middle>0xFF9999</TD>
+    <TD align=middle>0xFF99CC</TD>
+    <TD align=middle>0xFF99FF</TD></TR>
+  <TR>
+    <TD bgColor=#ff9900>&nbsp;</TD>
+    <TD bgColor=#ff9933>&nbsp;</TD>
+    <TD bgColor=#ff9966>&nbsp;</TD>
+    <TD bgColor=#ff9999>&nbsp;</TD>
+    <TD bgColor=#ff99cc>&nbsp;</TD>
+    <TD bgColor=#ff99ff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xCCCC00</P></TD>
+    <TD align=middle>0xCCCC33</TD>
+    <TD align=middle>0xCCCC66</TD>
+    <TD align=middle>0xCCCC99</TD>
+    <TD align=middle>0xCCCCCC</TD>
+    <TD align=middle>0xCCCCFF</TD></TR>
+  <TR>
+    <TD bgColor=#cccc00>&nbsp;</TD>
+    <TD bgColor=#cccc33>&nbsp;</TD>
+    <TD bgColor=#cccc66>&nbsp;</TD>
+    <TD bgColor=#cccc99>&nbsp;</TD>
+    <TD bgColor=#cccccc>&nbsp;</TD>
+    <TD bgColor=#ccccff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xFFCC00</P></TD>
+    <TD align=middle>0xFFCC33</TD>
+    <TD align=middle>0xFFCC66</TD>
+    <TD align=middle>0xFFCC99</TD>
+    <TD align=middle>0xFFCCCC</TD>
+    <TD align=middle>0xFFCCFF</TD></TR>
+  <TR>
+    <TD bgColor=#ffcc00>&nbsp;</TD>
+    <TD bgColor=#ffcc33>&nbsp;</TD>
+    <TD bgColor=#ffcc66>&nbsp;</TD>
+    <TD bgColor=#ffcc99>&nbsp;</TD>
+    <TD bgColor=#ffcccc>&nbsp;</TD>
+    <TD bgColor=#ffccff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xCCFF00</P></TD>
+    <TD align=middle>0xCCFF33</TD>
+    <TD align=middle>0xCCFF66</TD>
+    <TD align=middle>0xCCFF99</TD>
+    <TD align=middle>0xCCFFCC</TD>
+    <TD align=middle>0xCCFFFF</TD></TR>
+  <TR>
+    <TD bgColor=#ccff00>&nbsp;</TD>
+    <TD bgColor=#ccff33>&nbsp;</TD>
+    <TD bgColor=#ccff66>&nbsp;</TD>
+    <TD bgColor=#ccff99>&nbsp;</TD>
+    <TD bgColor=#ccffcc>&nbsp;</TD>
+    <TD bgColor=#ccffff>&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P align=center>0xFFFF00</P></TD>
+    <TD align=middle>0xFFFF33</TD>
+    <TD align=middle>0xFFFF66</TD>
+    <TD align=middle>0xFFFF99</TD>
+    <TD align=middle>0xFFFFCC</TD>
+    <TD align=middle>0xFFFFFF</TD></TR>
+  <TR>
+    <TD bgColor=#ffff00>&nbsp;</TD>
+    <TD bgColor=#ffff33>&nbsp;</TD>
+    <TD bgColor=#ffff66>&nbsp;</TD>
+    <TD bgColor=#ffff99>&nbsp;</TD>
+    <TD bgColor=#ffffcc>&nbsp;</TD>
+    <TD bgColor=#ffffff>&nbsp;</TD></TR>
+  </TBODY>
+</TABLE>
+</DIV>
+
+</DIV> <!-- page -->
+</BODY>
+
+</HTML>

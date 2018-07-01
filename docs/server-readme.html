@@ -1,0 +1,710 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+  <TITLE>Nemesis Server Documentation</TITLE>
+  <META http-equiv=content-type content=text/html;charset=utf-8>
+  <STYLE type=text/css>
+body {
+    margin: 0;
+    font-size: small;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background: #000000;
+}
+
+h1 {
+    margin: 0px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
+    font-size: 160%;
+    font-variant: small-caps;
+    color: #ffffff;
+    border-bottom: 2px solid #b0a583;
+}
+
+h2 {
+    margin: 0px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
+    font-size: 125%;
+    font-variant: small-caps;
+    color: #ffffff;
+    border-bottom: 1px solid #b0a583;
+}
+
+a {
+    text-decoration: none;
+    color: #6facff;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+#content_menu li {
+    font-size: 100%;
+}
+
+#content_menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-variant: small-caps;
+    padding: 0px 10px 0px 10px;
+}
+
+#content_menu li a:hover {
+    color: #6facff;
+}
+
+ul.directory {
+    font-family: "courier new";
+}
+
+span.command {
+    font-family: "courier new";
+}
+
+pre.example {
+    padding: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px dashed #6facff;
+    font-family: "courier new";
+}
+
+#content {
+	margin: 75px 0 0 0;
+}
+#section {
+	margin: 75px 0 0 0;
+	padding: 0 10px 0 10px;
+}
+#sub-section {
+	margin: 50px 0 0 0;
+	padding: 0 10px 0 10px;
+}
+</STYLE>
+</HEAD>
+
+<BODY>
+<DIV id="page">
+<P align=center><STRONG><FONT size=7>Nemesis Server v2.0.15</FONT></STRONG></P>
+<P align=center><STRONG>1.16n client and server mod</STRONG><BR><A href="http://www.q3nemesis.com">http://www.q3nemesis.com</A><BR><BR>Developed by Cyrus and Wonkey<BR><A href="mailto:cyrus@q3nemesis.com">cyrus@q3nemesis.com</A><BR/><A href="mailto:wonkey@q3nemesis.com">wonkey@q3nemesis.com</A><BR><BR><BR></P>
+
+<DIV id="content">
+<H1>Contents</H1>
+<UL id="content_menu">
+  <LI><A href="#overview">Overview</A></LI>
+  <LI><A href="#install">Installation</A></LI>
+  <LI><A href="#whats_new">What's New?</A></LI>
+  <LI><A href="#standard_config">Standard Configuration</A>
+  <UL>
+    <LI><A href="#std_hostname">Host Name</A></LI>
+    <LI><A href="#std_gametype">Game Type</A></LI>
+    <LI><A href="#std_maxclients">Maximum Clients</A></LI>
+    <LI><A href="#std_rconpassword">Remote CONtrol Password</A></LI>
+    <LI><A href="#std_password">Password</A></LI>
+    <LI><A href="#std_private">Private Clients</A></LI>
+    <LI><A href="#std_ping">Minimum and Maximum Ping</A></LI>
+    <LI><A href="#std_pure">Pure Server</A></LI>
+    <LI><A href="#std_fps">Frames Per Second</A></LI>
+    <LI><A href="#std_rate">Maximum Rate</A></LI>
+    <LI><A href="#std_knockback">Knockback</A></LI>
+    <LI><A href="#std_dmflags">dmflags</A></LI>
+    <LI><A href="#std_forcedrespawn">Forced Respawn</A></LI>
+    <LI><A href="#std_masterservers">Master Servers</A></LI>
+    <LI><A href="#std_roundlimits">Round Limits</A></LI>
+    <LI><A href="#std_bots">Bots</A></LI>
+  </UL></LI>
+  <LI><A href="#nemesis_config">Nemesis Configuration</A>
+  <UL>
+    <LI><A href="#nms_anticheat">Anticheat</A></LI>
+    <LI><A href="#nms_promode">ProMode</A></LI>
+    <LI><A href="#nms_delagged">DeLagged</A></LI>
+    <LI><A href="#nms_instgib">InstaGib</A></LI>
+    <LI><A href="#nms_railjump">Rail Jump</A></LI>
+    <LI><A href="#nms_motd">Message of the Day</A></LI>
+    <LI><A href="#nms_grapple">Grappling Hook</A></LI>
+    <LI><A href="#nms_startweapons">Start Weapons</A></LI>
+    <LI><A href="#nms_startammo">Start Ammo</A></LI>
+    <LI><A href="#nms_startstats">Start Health/Armor</A></LI>
+    <LI><A href="#nms_anticheatweapons">Disable Weapons</A></LI>
+    <LI><A href="#nms_disableitems">Disable Items</A></LI>
+    <LI><A href="#nms_gauntdamage">Gauntlet Damage</A></LI>
+    <LI><A href="#nms_rtf">Return the Flag</A></LI>
+    <LI><A href="#nms_weaponDrop">Weapon Drop</A></LI>
+    <LI><A href="#nms_thawtime">Thaw (unfreeze) Time</A></LI>
+    <LI><A href="#nms_selfdamage">Self Damage</A></LI>
+    <LI><A href="#nms_lavadamage">Lava Damage</A></LI>
+    <LI><A href="#nms_forcespec">Force Team Only Spectate</A></LI>
+    <LI><A href="#nms_spawnprotect">Spawn Protection</A></LI>
+    <LI><A href="#nms_teamknockback">Team Knockback</A></LI>
+    <LI><A href="#nms_teamcolorfrzskins">Team Colored Freeze Skins</A></LI>
+    <LI><A href="#nms_spawnkillpenalty">Spawn Kill Penalty</A></LI>
+    <LI><A href="#nms_suicidepenalty">Suicide Penalty</A></LI>
+    <LI><A href="#nms_maprotation">Map Rotation</A></LI>
+    <LI><A href="#nms_referee">Referee</A></LI>
+    <LI><A href="#nms_logging">Logging</A></LI>
+    <LI><A href="#nms_fastrail">Fast Rail</A></LI>
+    <LI><A href="#nms_wonkeymagic">Wonkey Magic</A>
+      <UL>
+        <LI>Ban IPs</LI>
+        <LI>Ban Names</LI>
+        <LI>Ban Tags</LI>
+        <LI>Ban Words</LI>
+        <LI>Chat Filtering</LI>
+      </UL>
+    </LI>
+    <LI><A href="#nms_matchsettings">Match Settings</A></LI>
+  </UL></LI>
+  <LI><A href="#credit">Credits</A></LI>
+</UL>
+</DIV> <!-- content -->
+
+<DIV id="section">
+<A name="overview"></A><H1>Overview</H1>
+<P>The latest version of this document is always available at <a href="http://www.q3nemesis.com/docs/server-readme.html">http://www.q3nemesis.com/docs/server-readme.html</a>, please use it whenever possible.</P>
+<P>Nemesis is a client and server modification for Quake 3 offering many of the features of OSP from 1.32 with efforts to make sure the server is as cheat free as possible.  There is a very simple mission statement where we strive for a competitive arena which should be consistent between servers running Nemesis.  For that reason we do not allow changing of weapon damage, weapon splash damage or splash radius, weapon respawn rates or item respawn rate.</P>
+</DIV> <!-- overview -->
+
+<DIV id="section">
+<A name="install"></A><H1>Installation</H1>
+<P>Within the server's quake 3 installation directory create a folder called <STRONG>nemesis</STRONG>.  Unzip the contents of nemesis-server-X-Y-Z.zip (X, Y and Z represent the release version) into the <STRONG>nemesis</STRONG> folder you just created.  You will be left with a folder structure similar to the following</P>
+<UL class="directory">
+<LI>Quake 3 Installation Directory
+  <UL>
+    <LI>/baseq3</LI>
+    <LI>/nemesis
+    <UL>
+      <LI>/modes</LI>
+      <LI>/wonkeymagic</LI>
+      <LI>description.txt</LI>
+      <LI>nemesis-server-X-Y-Z.pk3</LI>
+      <LI>zzz-nemesis-client-X-Y-Z.pk3 (not required on server)</LI>
+      <LI>zzz-nemesis-models.pk3 (not required on server)</LI>
+      <LI>client-readme.html (not required on server)</LI>
+      <LI>server-readme.html (not required on server)</LI>
+    </UL></LI>
+  </UL></LI>
+</UL>
+<P>You will be able to start your server with a command similar to the following</P>
+<P><SPAN class="command">./q3ded +set com_hunkmegs 64 +set fs_basepath `/bin/pwd` +set fs_game nemesis +exec modes/frz.cfg +set dedicated 2</SPAN></P>
+</DIV> <!-- installation -->
+
+<DIV id="section">
+<A name="whats_new"></A><H1>What's New?</H1>
+<P>Description of changes between releases.</P>
+<DIV id="sub-section">
+<H2>2.0.15</H2>
+<UL>
+  <LI>Nemesis CVARs prefixed with nms_ instead of g_ to avoid confusion with default CVARs and features.</LI>
+  <LI>Renamed Monkey Magic to Wonkey Magic to avoid confusion with the old standalone, java based version.</LI>
+  <LI>Moved banning files, motd into a new folder called wonkeymagic.</LI>
+  <LI>Reorganised modes folder so mode specific files are nested within one folder per mode.</LI>
+</UL>
+</DIV>
+
+<H2>2.0.12</H2>
+<UL>
+  <LI>First public release</LI>
+</UL>
+</DIV>
+</DIV> <!-- whats new -->
+
+<DIV id="section">
+<A name="standard_config"></A><H1>Standard Configuration</H1>
+<P>Description of configuration parameters standard to quake 3.</P>
+
+<DIV id="sub-section">
+<A name="std_hostname"></A><H2>Host Name</H2>
+<P><SPAN class="command">sv_hostname</SPAN> is the name you want your server to be shown as in server browsers.</P>
+<PRE class="example">sv_hostname "My Nemesis Server"</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_gametype"></A><H2>Game Type</H2>
+<P><SPAN class="command">g_gameType</SPAN> controls the type of game play.</P>
+<UL>
+<LI>0 - Free For All</LI>
+<LI>1 - Tournament (1v1)</LI>
+<LI>2 - Single Player</LI>
+<LI>3 - Team Deathmatch</LI>
+<LI>4 - Capture the Flag</LI>
+<LI>5 - Freeze Tag (<em>added by Nemesis</em>)</LI>
+</UL>
+<PRE class="example">g_gameType 5</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_maxclients"></A><H2>Maximum Clients</H2>
+<P><SPAN class="command">sv_maxClients</SPAN> is used to determine the maximum number of clients allowed to be in your server at any one time (this includes spectators).</P>
+<PRE class="example">sv_maxClients 12</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_rconpassword"></A><H2>Remote CONtrol Password</H2>
+<P><SPAN class="command">rconPassword</SPAN> is used to set a the remote control password.</P>
+<PRE class="example">rconPassword "password"</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_password"></A><H2>Password</H2>
+<P><SPAN class="command">g_password</SPAN> and <SPAN class="command">g_needpass</SPAN> are used to set a password for the whole server.  This means only players with the correct password set can connect.</P>
+<PRE class="example">// enable password
+g_needpass 1
+g_password "password"
+
+// disable password
+g_needpass 0
+g_password ""</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_private"></A><H2>Private Clients</H2>
+<P><SPAN class="command">sv_privateClients</SPAN> is used to determine how many of the client slots (set with <SPAN class="command">sv_maxClients</SPAN>) are reserved for clients with the private password.  The private password is set using <SPAN class="command">sv_privatePassword</SPAN>.</P>
+<PRE class="example">sv_privateClients 4
+sv_privatePassword "password"</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_ping"></A><H2>Minimum and Maximum Ping</H2>
+<P><SPAN class="command">sv_minPing</SPAN> and <SPAN class="command">sv_maxPing</SPAN> set the range of ping a client must be within to enter the server.</P>
+<P>Unless you have a problem with very high pingers entering your server I'd recommend these both be set to 0.  When a client connects to a server the only chance for the server to describe problems to them is the connection window (while waiting to join), but in 1.16n the message about low pings overrides everything else.  e.g. if the server is full you no longer get told the server is full you get told the server is only for low pings.</P>
+<PRE class="example">sv_minPing 0
+sv_maxPing 150</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_pure"></A><H2>Pure Server</H2>
+<P><SPAN class="command">sv_pure</SPAN> sets whether a client is allowed to have any pk3 files that the server does not have.  Set this to <strong>1</strong> to enable pure mode, <strong>0</strong> to turn it off.</P>
+<P>When pure is on, the server asks the client to send it the unique md5 hash for each pk3 file and then compares it with the file it has.  This prevents a client modifying a pk3 file.</P>
+<P>If a client tries to connect to a pure server with extra pk3 files or without all the required pk3 files it will receive an <strong>unpure client</strong> message in the console window and will not be allowed to connect.  If the server has <SPAN class="command">sv_allowDownload</SPAN> enabled (set to 1) and the client has <SPAN class="command">cl_allowDownload</SPAN> on (set to 1) the client will attempt to download missing pk3 files to satisfy the server.</P>
+<P>Pure mode is notoriously buggy in 1.16n and autodownload will not even begin to work on linux servers unless they are started with the correct commandline arguments.  Linux servers require the <SPAN class="command">fs_basepath</SPAN> be set within the command that launches quake 3<BR/><SPAN class="command">q3ded +set fs_basepath <strong>&lt;Q3_PATH&gt;</strong> +set fs_game nemesis +exec modes/frz.cfg</SPAN> where <strong>&lt;Q3_PATH&gt;</strong> is set to the directory quake 3 is installed in (something like <SPAN class="command">/home/user/quake3_116</SPAN>).</P>
+<P>After all that pure mode is often regarded as useless as the internet provides a resource to download cracked quake3 executables which can bypass the server's pure checking.  Nemesis provides its own <A href="#nms_anticheat">anticheat system</A> which is more effective.</P>
+<PRE class="example">sv_pure 1
+sv_allowDownload 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_fps"></A><H2>Frames Per Second</H2>
+<P><SPAN class="command">sv_fps</SPAN> controls the upper limit of how many game updates per second the server sends to clients.  The actual value a client receives is determined by their setting of <SPAN class="command">snaps</SPAN>, but the server setting prevents very high values being requested by the client.  The quake 3 engine actually has a hardcoded limit of 30 so an fps of greater than 30 will never actually happen.</P>
+<P>The more updates a client receives per second the more accurate a view of the arena they can display to the client.  Of course, the higher the value, the more bandwidth requirements are placed on both client and server to keep up.</P>
+<PRE class="example">sv_fps 30</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_rate"></A><H2>Maximum Rate</H2>
+<P><SPAN class="command">sv_maxRate</SPAN> controls the maximum rate a client is allowed to request from the server (via the <SPAN class="command">rate</SPAN> command).</P>
+<P>On a LAN game a rate of 25000 is fine because of the underlying network speeds, but an internet game should have this value set at about 12000 to prevent network congestion and laggy client performance.</P>
+<PRE class="example">sv_maxRate 12000</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_knockback"></A><H2>Knockback</H2>
+<P><SPAN class="command">g_knockback</SPAN> controls the amount of knockback that a player feels e.g. when caught in rocket splash.  The default value is 1000.</P>
+<PRE class="example">g_knockback 1000</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_dmflags"></A><H2>dmflags</H2>
+<P>You can enable/disable some standard quake features with the <SPAN class="command">dmflags</SPAN> command.  Just add up the numbers of the features you want to enable from the following list;</p>
+<UL>
+<LI>8 - No Falling Damage</LI>
+<LI>16 - Fixed Field of View (FOV)</LI>
+<LI>32 - No Footsteps</LI>
+</UL>
+<PRE class="example">dmflags 8  // no falling damage</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_forcedrespawn"></A><H2>Forced Respawn</H2>
+<P><SPAN class="command">g_forcedRespawn</SPAN> controls the time (in seconds) before a player is forced to respawn when a new round starts.</P>
+<PRE class="example">g_forcedRespawn 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_masterservers"></A><H2>Master Servers</H2>
+<P>Master servers hold a global list of all online quake 3 servers at any one time.  Setting the master servers correctly will enable your server to be found quickly and easily by other players using server browsers.  If you want to see the information a master server holds why not check out the <a href="http://www.q3nemesis.com/spider">Nemesis Server Spider</a></P>
+<PRE class="example">sv_master1 "monster.idsoftware.com"
+sv_master2 "master3.idsoftware.com"
+sv_master3 "clanservers.net"</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_roundlimits"></A><H2>Round Limits</H2>
+<P>A game or round can be limited in a variery of ways.</P>
+<P><SPAN class="command">fraglimit</SPAN> is used in FFA and TDM games.  When a player or team reaches the frag limit the game is considered complete.</P>
+<P><SPAN class="command">capturelimit</SPAN> is used in CTF games.  When a team reaches the capture limit the game is considered complete.</P>
+<P><SPAN class="command">freezelimit</SPAN> (added by nemesis) is used in freezetag games.  When a team reaches the freeze limit the game is considered complete.</P>
+<P><SPAN class="command">timelimit</SPAN> controls the time in minutes after which a game is considered complete.  Time limit is often used in conjunction with one of the other 3 round limiters above to prevent a game lasting too long.</P>
+<PRE class="example">freezelimit 10
+timelimit 30</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="std_bots"></A><H2>Bots</H2>
+<P>We recommend that you disable bots on your server if possible as they can be the cause of some curious bugs in certain circumstances.  However, they work perfectly well in many games.</P>
+<P><SPAN class="command">bot_enable</SPAN> controls whether bots are allowed on the server.  <SPAN class="command">bot_nochat</SPAN> controls whether bots in game are allowed to talk.  <SPAN class="command">bot_minPlayers</SPAN> controls the minimum amount of players one each team - if it falls below this value then the server automatically adds bots.  <SPAN class="command">g_spSkill</SPAN> controls the skill level of the bots.</P>
+<PRE class="example">bot_enable 1
+bot_nochat 1
+bot_minPlayers 2
+g_spSkill 3</PRE>
+</DIV>
+
+</DIV> <!-- standard config -->
+
+<DIV id="section">
+<A name="nemesis_config"></A><H1>Nemesis Configuration</H1>
+<P>Description of configuration parameters added by Nemesis.</P>
+
+<DIV id="sub-section">
+<A name="nms_anticheat"></A><H2>Anticheat</H2>
+<P>No details yet ...</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_promode"></A><H2>ProMode</H2>
+<P><SPAN class="command">nms_proMode</SPAN> controls whether ProMode (copyrights of arQon, author of <a href="http://www.promode.org" rel="nofollow">CPMA</a>) is enabled on the server.  <strong>1</strong> to enable, <strong>0</strong> to disable.</P>
+<P>ProMode changes the movement physics so that players have more air control and can double jump when coming up ramps.  With VQ3 physics most players will be used to holding down forward and one strafe key whilst they are in air - in ProMode you have air control <strong>only</strong> when you are holding down one direct button.</P>
+<P>ProMode changes the weapon switch time so it is possible to fast switch between certain weapons.  For example, try using the lightning gun on someone and then switching to rail.  You will fire an instant railshot meaning the combination can give a very quick kill.</P>
+<P>Players running Nemesis client will also notice ProMode adds different hits sounds depending on how much damage you caused to the enemy.</P>
+<PRE class="example">nms_proMode 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_delagged"></A><H2>DeLagged</H2>
+<P><SPAN class="command">nms_delagHitScan</SPAN> controls whether or not the server runs in delagged mode - <strong>1</strong> to enable, <strong>0</strong> to disable.  Delag mode means all clients can fire directly at opponents and the server will do ping based compensations.  Normally benefits high pingers, but can cause annoying side effects such as being killed when you've already run around a corner!</P>
+<PRE class="example">nms_delagHitScan 0</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_instagib"></A><H2>InstaGib</H2>
+<P><SPAN class="command">nms_instGib</SPAN> controls whether or not the server runs in instagib mode - one hit one kill.  Choose from the following options;</P>
+<UL>
+<LI>0 - No Instagib</LI>
+<LI>1 - Rail Instagib</LI>
+</UL>
+<PRE class="example">nms_instaGib 0</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_railjump"></A><H2>Rail Jump</H2>
+<P><SPAN class="command">nms_railJump</SPAN> controls whether rail jumping is enabled on the server.  <strong>1</strong> to enable, <strong>0</strong> to disable.</P>
+<PRE class="example">nms_railJump 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_motd"></A><H2>Message of the Day</H2>
+<P><SPAN class="command">nms_useMotd</SPAN> controls whether the <SPAN class="command">wonkeymagic/motd.txt</SPAN> file content is displayed in the console window when a client connects to the server.  <strong>1</strong> to enable, <strong>0</strong> to disable.</P>
+<PRE class="example">nms_useMotd 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_grapple"></A><H2>Grapping Hook</H2>
+<P><SPAN class="command">nms_hookEnable</SPAN> controls whether players can use the grappling hook.  <strong>1</strong> to enable, <strong>0</strong> to disable.</P>
+<P><SPAN class="command">nms_hookSky</SPAN> controls whether players can hang on to the sky with the grappling hook.  <strong>1</strong> to enable, <strong>0</strong> to disable.</P>
+<P><SPAN class="command">nms_hookDeploy</SPAN> is the speed (in game units) at which the hook moves when it is fired.</P>
+<P><SPAN class="command">nms_hookPull</SPAN> is the speed (in game units) at which the hook pulls the player towards it.</P>
+<P><SPAN class="command">nms_hookHoldTime</SPAN> is the time (in seconds) the hook can hold on to an object before it automatically releases.</P>
+<PRE class="example">nms_hookEnable 1
+nms_hookSky 0
+nms_hookDeploy 800
+nms_hookPull 800
+nms_hookHoldTime 5</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_startweapons"></A><H2>Start Weapons</H2>
+<P><SPAN class="command">nms_machineGun</SPAN>, <SPAN class="command">nms_shotGun</SPAN>, <SPAN class="command">nms_grenadeLauncher</SPAN>, <SPAN class="command">nms_plasmaGun</SPAN>, <SPAN class="command">nms_rocketLauncher</SPAN>, <SPAN class="command">nms_lightningGun</SPAN>, <SPAN class="command">nms_railGun</SPAN> and <SPAN class="command">nms_bfgGun</SPAN> are used to control the weapons a player starts with.  Set to <strong>1</strong> to start with the weapon, otherwise <strong>0</strong>.</P>
+<PRE class="example">nms_machineGun 1
+nms_shotGun 1
+nms_grenadeLauncher 0
+nms_plasmaGun 0
+nms_rocketLauncher 1
+nms_lightningGun 0
+nms_railGun 1
+nms_bfgGun 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_startammo"></A><H2>Start Ammo</H2>
+<P><SPAN class="command">nms_bullets</SPAN>, <SPAN class="command">nms_shells</SPAN>, <SPAN class="command">nms_grenades</SPAN>, <SPAN class="command">nms_rockets</SPAN>, <SPAN class="command">nms_bolts</SPAN>, <SPAN class="command">nms_slugs</SPAN>, <SPAN class="command">nms_cells</SPAN> and <SPAN class="command">nms_bfg</SPAN> are used to control the ammo a player starts with.</P>
+<PRE class="example">nms_bullets 100
+nms_shells 10
+nms_slugs 10
+nms_grenades 0
+nms_rockets 5
+nms_bolts 0
+nms_cells 10
+nms_bfg 0</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_startstats"></A><H2>Start Health/Armor</H2>
+<P><SPAN class="command">nms_startHealth</SPAN> and <SPAN class="command">nms_startArmor</SPAN> control the starting health and armor of players.  Health defaults to 125 and armor to 0.  Note that like in normal play, any values above 100 will slowly tick down.</P>
+<PRE class="example">nms_startHealth 125
+nms_startArmor 30</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_disableweapons"></A><H2>Disable Weapons</H2>
+<P>You can disable weapons spawning on a map using the <SPAN class="command">map_weaponDisable</SPAN> command.  Just add up the numbers of the weapons you want to disable from the following list;</p>
+<UL>
+<LI>1 - MachineGun</LI>
+<LI>2 - ShotGun</LI>
+<LI>4 - Grenade Launcher</LI>
+<LI>8 - Rocket Launcher</LI>
+<LI>16 - Lightning Gun</LI>
+<LI>32 - Rail Gun</LI>
+<LI>64 - Plasma Gun</LI>
+<LI>128 - BFG</LI>
+</UL>
+<P>If you set a weapon so a client starts with it, disabling it with <SPAN class="command">map_weaponDisable</SPAN> only prevents it spawning on the map - the client still has it, so providing they have ammo, they can use it.</P>
+<PRE class="example">map_weaponDisable 128  // no BFG
+map_weaponDisable 148  // no BFG, grenade launcher or lighning  gun</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_disableitems"></A><H2>Disable Items</H2>
+<P>You can disable items spawning on a map using the <SPAN class="command">map_itemDisable</SPAN> command.  Just add up the numbers of the items you want to disable from the following list;</p>
+<UL>
+<LI>1 - Armor</LI>
+<LI>2 - Health</LI>
+<LI>4 - Teleport</LI>
+<LI>8 - MedKit</LI>
+<LI>16 - Mega Health</LI>
+<LI>32 - Quad Damage</LI>
+<LI>64 - Battle Suit</LI>
+<LI>128 - Haste</LI>
+<LI>256 - Invisibility</LI>
+<LI>512 - Regeneration</LI>
+<LI>1024 - Flight</LI>
+</UL>
+<P>Alternatively you can disable all items by setting <SPAN class="command">map_noItems</SPAN> to 1.</P>
+<PRE class="example">map_itemDisable 96  // no quad damage or battle suit
+map_itemDisable 2047  // no items</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_gauntdamage"></A><H2>Gauntlet Damage</H2>
+<P><SPAN class="command">nms_gauntDamage</SPAN> sets the amount of damage the gaunlet does per hit - defaults to 50.</P>
+<PRE class="example">nms_gauntDamage 50</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_rtf"></A><H2>Return the Flag</H2>
+<P><SPAN class="command">nms_returnFlag</SPAN> controls whether players have to carry their own flag back to base in CTF games.  The default behaviour is that when a player touches the flag it instantly appears back in their base.</P>
+<PRE class="example">nms_returnFlag 1  // players must carry own flag back to base</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_weaponDrop"></A><H2>Weapon Drop</H2>
+<P><SPAN class="command">nms_weaponDrop</SPAN> controls whether a player drops their current weapon when they die.  <strong>1</strong> to enable weapon dropping, <strong>0</strong> to disable.</P>
+<PRE class="example">nms_weaponDrop 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_thawtime"></A><H2>Thaw (unfreeze) Time</H2>
+<P><SPAN class="command">nms_autoThawTime</SPAN> controls the time (in seconds) before a player automatically thaws in freezetag games.</P>
+<P><SPAN class="command">nms_thawTime</SPAN> controls the time (in seconds) you must stand by a frozen player to thaw them.</P>
+<P><SPAN class="command">nms_worldThawTime</SPAN> controls the time (in seconds) before a player is thawed when they have been killed by the world - lava, slime, falling off.</P>
+<PRE class="example">nms_autoThawTime 0  // no auto thaw
+nms_thawTime 3
+nms_worldThawTime 5
+</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_selfdamage"></A><H2>Self Damage</H2>
+<P><SPAN class="command">nms_selfDamage</SPAN> controls how much you damage yourself with projectiles (e.g. rocket splash).  Set between <strong>0.0</strong> (no damage to self) to, <strong>1.0</strong> (normal damage to self).</P>
+<PRE class="example">nms_selfDamage 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_lavadamage"></A><H2>Lava Damage</H2>
+<P><SPAN class="command">nms_lavaDamage</SPAN> controls whether lava damages players.  <strong>1</strong> to enable this damage , <strong>0</strong> to disable</P>
+<PRE class="example">nms_lavaDamage 0</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_forcespec"></A><H2>Force Team Only Spectate</H2>
+<P>Setting <SPAN class="command">nms_forceTeamSpec</SPAN> to <strong>1</strong> means that in team games you can only spectate members of your own team.  Defauls to <strong>0</strong></P>
+<PRE class="example">nms_forceTeamSpec 1</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_spawnprotect"></A><H2>Spawn Protection</H2>
+<P><SPAN class="command">nms_spawnProtect</SPAN> and <SPAN class="command">nms_protectTime</SPAN> TODO.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_teamknockback"></A><H2>Team Knockback</H2>
+<P><SPAN class="command">nms_noTeamKnockback</SPAN> TODO.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_teamcolorfrzskins"></A><H2>Team Colored Freeze Skins</H2>
+<P><SPAN class="command">nms_teamColorFrzSkins</SPAN> TODO.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_spawnkillpenalty"></A><H2>Spawn Kill Penalty</H2>
+<P><SPAN class="command">nms_spawnKillPenalty</SPAN> TODO.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_suicidepenalty"></A><H2>Suicide Penalty</H2>
+<P><SPAN class="command">nms_suicidePenalty</SPAN> TODO.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_maprotation"></A><H2>Map Rotation</H2>
+<P>Instead of using vstr strings to create a map rotation you can use the map files to create a more flexible rotation scheme.  The main advantages of using map files are;</P>
+<UL>
+<LI>A referee can change map using <SPAN class="command">\ref map X</SPAN> and rotation will continue when that map is over.</LI>
+<LI>A referee can choose to skip the current map in rotation using <SPAN class="command">\ref nextmap</SPAN></LI>
+<LI>At the end of every map a console message tells players which map is next.</LI>
+<LI>Players can find out which maps are in rotation by typing <SPAN class="command">\maplist</SPAN></LI>
+</UL>
+<P>The down side of map rotation is that you cannot change server settings per map - although we are working on a way to allow this.  If you need to be able to change server settings per map, then you will have to use the vstr method in the second example below.</P>
+<P><SPAN class="command">map_mapRotate</SPAN> should be set to <strong>1</strong> to enable map files.  <SPAN class="command">map_mapFile</SPAN> should be set to the name of the map file (located within mapfiles directory).  <SPAN class="command">map_startMap</SPAN> should be set to the first map in rotation.</P>
+<PRE class="example">// this goes at the very bottom of your config file
+map_mapRotate 1
+map_mapFile frz_maps.txt
+map_startMap q3dm6
+map q3dm6  // used to kick server into first map</PRE>
+<PRE class="example">// old style vstr map rotation
+map_mapRotate 0
+set m1 "map q3dm6; nms_lightningGun 1; set nextmap vstr m2"
+set m2 "map q3dm7; nms_lightningGun 0; set nextmap vstr m3"
+set m3 "map q3dm8; set nextmap vstr m4"
+set m4 "map pro_q3dm13; set nextmap vstr m5"
+set m5 "map q3dm14; set nextmap vstr m6"
+set m6 "map overkill; set nextmap vstr m7"
+set m7 "map cpm2;set nextmap vstr m1"
+vstr m1  // used to kick server into first map</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_referee"></A><H2>Referee</H2>
+<P><SPAN class="command">nms_refPass</SPAN> is used to set the referee password on the server.</P>
+<P>A player can access referee mode in server by typing <strong>/ref PASSWORD</strong>, where PASSWORD is the value set for <SPAN class="command">nms_refPass</SPAN>.  Once authenticated as a referee you can type <strong>/ref</strong> to see a list of referee commands.</P>
+<ul>
+  <li><strong>authorize</strong> - enable(1) or disable(0) Nemesis Client authentication</LI>
+  <li><strong>allowvote</strong> - enable(1) or disable(0) client voting</LI>
+  <li><strong>autothawtime</strong> - time it takes a player to unthaw automatically in world(in seconds)</LI>
+  <li><strong>banbyID</strong> - bans a player from the server, banbyID &lt;ID&gt;</LI>
+  <li><strong>banIP</strong> - bans a player from the server, banIP &lt;IP address&gt;</LI>
+  <li><strong>capturelimit</strong> - amount of captures needed to win in CTF</LI>
+  <li><strong>clientips</strong> - list all available player's on server and their ips</LI>
+  <li><strong>dowarmup</strong> - enable(1) or disable(0) warmup stage</LI>
+  <li><strong>fastrail</strong> - enable(1) or disable(0) 1/2 sec faster rail reload</LI>
+  <li><strong>forceteamspec</strong> - forces a player to spectate only his team members in freeze</LI>
+  <li><strong>fraglimit</strong> - amount of frags needed to win in FFA, TDM, or 1V1</LI>
+  <li><strong>freezelimit</strong> - amount of round wins per team needed to win a match in freeze</LI>
+  <li><strong>friendlyfire</strong> - enable(1) or disable(0) hurting of teammates via shooting</LI>
+  <li><strong>gametype</strong> - 0 = FFA, 1 = 1V1, 2 = SP, 3 = TDM, 4 = CTF, 5 = FRZ</LI>
+  <li><strong>hook</strong> - enable(1) or disable(0) offhand grappling hook</LI>
+  <li><strong>instagib</strong> - enable(1) or disable(0) rail instagib</LI>
+  <li><strong>kick</strong> - kick a client, kick &lt;ID&gt;</LI>
+  <li><strong>lockblue</strong> - locks blue team, only works for team based games</LI>
+  <li><strong>lockred</strong> - locks red team, only works for team based games</LI>
+  <li><strong>lockteams</strong> - locks both teams [red/blue], only works for team based games</LI>
+  <li><strong>logout</strong> - logout as a referee</LI>
+  <li><strong>nextmap</strong> - executes the nextmap in the server rotation (if rotation enabled)</LI>
+  <li><strong>map</strong> - execute a map by name &lt;MAP_NAME&gt;</LI>
+  <li><strong>maprotate</strong> - enable(1) or disable(0) map rotation</LI>
+  <li><strong>minplayers</strong> - sets amount of players needed per team to continue a match</LI>
+  <li><strong>mode</strong> - executes a mode listed in the modes.txt file</LI>
+  <li><strong>mute</strong> - mutes a player via ID or name</LI>
+  <li><strong>pause</strong> - pauses the game</LI>
+  <li><strong>promode</strong> - enable(1) or disable(0) promode gameplay, for more info see www.promode.org</LI>
+  <li><strong>protecttime</strong> - adjust amount of time client spawn protection lasts (in seconds)</LI>
+  <li><strong>pure</strong> - enable(1) or disable(0) pure server mode</LI>
+  <li><strong>putblue</strong> - reassign a player to blue team by ID or name</LI>
+  <li><strong>putred</strong> - reassign a player to red team by ID or name</LI>
+  <li><strong>railjump</strong> - enable(1) or disable(0) rail-jumping, clients can boost off floors, walls</LI>
+  <li><strong>remove</strong> - removes player from game to spectator status via ID or name</LI>
+  <li><strong>removeip</strong> - removes a banned players IP on the banlist</LI>
+  <li><strong>returnflag</strong> - enable(1) or disable(0) manually returning of flag (RTF)</LI>
+  <li><strong>restart</strong> - no value required but can give a value in seconds before map restart</LI>
+  <li><strong>shuffle</strong> - attempts to randomize players and even out teams by player scores</LI>
+  <li><strong>spawnprotect</strong> - enable(1) or disable(0) client spawn protection</LI>
+  <li><strong>teamknockback</strong> - enable(1) or disable(0) weapon knockback of live teammates</LI>
+  <li><strong>thawtime</strong> - time it takes a teammate to thaw another teammate in freeze (in seconds)</LI>
+  <li><strong>timelimit</strong> - amount of time set per map round (in minutess)</LI>
+  <li><strong>unlagged</strong> - enable(1) or disable(0) Unlagged compensation</LI>
+  <li><strong>unlockblue</strong> - unlocks blue team, only works for team based games</LI>
+  <li><strong>unlockred</strong> - unlocks red team, only works for team based games</LI>
+  <li><strong>unlockteams</strong> - unlocks both teams [red/blue], only works for team based games</LI>
+  <li><strong>unmute</strong> - unmutes a player via ID or name</LI>
+  <li><strong>unpause</strong> - unpause the game</LI>
+  <li><strong>worldthawtime</strong> - time it takes a player to thaw in world (lava, pits, etc)</LI>
+</ul>
+<PRE class="example">nms_refPass "refereePassword"</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_logging"></A><H2>Logging</H2>
+<P><SPAN class="command">g_log</SPAN> and other created files TODO.</P>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_fastrail"></A><H2>Fast Rail</H2>
+<P><SPAN class="command">nms_fastRail</SPAN> controls the reload speed of the railgun with 2 possible values.  <strong>0</strong> is default reload of 1.5s and <strong>1</strong> is fast reload of 1.0s</P>
+<PRE class="example">nms_fastRail 0  // 1.5s reload time
+nms_fastRail 1  // 1.0s reload time</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_wonkeymagic"></A><H2>Wonkey Magic</H2>
+<P>Wonkey Magic is a server guardian giving you the power to control, warn and remove players automatically.</P>
+<P><SPAN class="command">wonkeymagic/bannedIPs.txt</SPAN> is used to control banned IP addresses.  The general format follows where <em>IP</em> is mandatory, as is <em>NO_OF_GAMES_BANNED</em>, but <em>SUBNET</em> is optional.</P>
+<PRE class="example">[IP]/[SUBNET]\[NO_OF_GAMES_BANNED]
+
+192.168.1.1\-1     // bans single IP forever
+192.168.1.2\5      // bans single IP for 5 games
+192.168.1.0/24\-1  // bans 192.168.1.0 - 192.168.1.255 forever
+10.0.0.0/8\5       // bans 10.0.0.0 - 10.255.255.255 for 5 games</PRE>
+<P>If you need help working out subnets you can try this <a href="http://networking.ringofsaturn.com/IP/subnet.php" rel="nofollow">Subnet Calculator</a> or perform a <a href="http://www.dnsstuff.com/tools/cidr.ch?ip=192.168.1.1" rel="nofollow">CIDR Query</a></P>
+<P><SPAN class="command">wonkeymagic/bannedNames.txt</SPAN> is used to control banned words in player names.  Names are checked for each entry (one entry per line) in the file - e.g. an entry of <strong>named</strong> will match un<strong>named</strong>, un<strong>nAmEd</strong>player, etc.  Names are stripped of color flags and converted to lowercase before comparison, so all entries should be lowercase.  If a player is trying to connect with a banned name they will be prevented from entering the server.  If they change their name ingame they receive a warning and have 30 seconds to change to a valid name or they are kicked.</P>
+<P><SPAN class="command">wonkeymagic/bannedTags.txt</SPAN> is used to control banned clan tags in player names - a banned tag is one you want to protect, like the tag of your own clan.  Names are checked for each entry (one entry per line) in the file - e.g. an entry of <strong>[*v*]</strong> will match <strong>[*v*]</strong>, <strong>[*V*]</strong>PJ, etc.  Names are stripped of color flags and converted to lowercase before comparison, so all entries should be lowercase.  If a player is trying to connect with a banned tag they will be prevented from entering the server.  If they change their name to one with a banned tag ingame they receive a warning and have 30 seconds to change to a valid name or they are kicked.</P>
+<P><SPAN class="command">wonkeymagic/bannedWords.txt</SPAN> is used to control banned words in chat.  Chat messages are checked for each entry (one entry per line) in the file - e.g. an entry of <strong>fool</strong> will match <strong>fool</strong>, <strong>FOOL</strong>ISH, etc.  Messages are stripped of color flags and converted to lowercase before comparison, so all entries should be lowercase.  If a tries to send a message with a banned word in the message will not be sent and they will receive a warning.  Subsequent warnings will result in the player being muted for a continually increasing amount of time - maximum of 120 seconds.</P>
+<SPAN class="command">nms_monkeymagic</SPAN> is used to enable/disable the features of Monkey Magic (some features are always on).  Just add up the numbers of the items you want to enable from the following list;</p>
+<UL>
+<LI>1 - Chat Filtering</LI>
+<LI>2 - Name and Tag Filtering</LI>
+</UL>
+<PRE class="example">nms_wonkeymagic 3  // name and chat filtering</PRE>
+</DIV>
+
+<DIV id="sub-section">
+<A name="nms_matchsettings"></A><H2>Match Settings</H2>
+<P><SPAN class="command">nms_minPlayers</SPAN> controls how many players (per team) are needed for the game to begin.  If the number of players falls below this the game will return to warmup mode.</P>
+<P><SPAN class="command">nms_maxBluePlayers</SPAN> and <SPAN class="command">nms_maxRedPlayers</SPAN> are used to control the maximum amount of players per team.</P>
+<PRE class="example">nms_minPlayers 0  // disable this, it's annoying
+nms_maxBluePlayers 8
+nms_maxRedPlayers 8</PRE>
+<P><SPAN class="command">g_doWarmup</SPAN> and
+<SPAN class="command">g_warmup</SPAN> and 
+<SPAN class="command">g_teamAutoJoin</SPAN> and
+<SPAN class="command">g_teamForceBalance</SPAN> TODO</P>
+</DIV>
+
+</DIV> <!-- nemesis config -->
+
+<DIV id="section">
+<A name=credit></A><H1>Credits</H1>
+<P>Special thanks to</P>
+<P>*V* and ELITE clans for using their server to test early releases.  Special mention to PJ and Skyy for continual feedback and testing.</P>
+<P><strong>Nel (Haste) Toronto</strong> - www.planetquake.com/alternatefire for Unlagged and RTF code</P>
+<P><strong>Kevin Rhea</strong> - www.orangesmoothie.com (OSP) for various OSP code</P>
+<P><strong>arQon</strong> - www.promode.org (CPMA) for ProMode physics</P>
+<P><strong>Darrell Bircsak</strong> - for freeze code</P>
+<P><strong>Q3AS</strong> - for various code</P>
+<P><strong>MatchMod</strong> - for various code</P>
+<P><strong>IDSoftware</strong> - for such an awesome game</P>
+</DIV>  <!-- credits -->
+
+</DIV> <!-- page -->
+
+</BODY>
+
+</HTML>
